@@ -10,30 +10,38 @@
     <link rel="stylesheet" href="css/cardstarter.min.css">
 </head>
 <body>
-    
-      
-        <h3>Master Deck</h3>
-    <section id="master-deck-container" class="card-container"></section>
-    <button>RE-SHUFFLE DECK</button>
-    <h3>Shuffled Deck</h3>
-    <section id="shuffled-deck-container" class="card-container">
+    <h1>BlackJack</h1> 
+    <div ></div>
+    <div class="playField">
+    <section class="playerSection">
+      <div class="player" id='playery'>PLAYER</div>
+      <div class="credit">0
+      <input type="text" placeholder="bet" id="myInput">
+    </div>
+      <div class="playerCard"></div>
+        <button class="button" id='playerhit'>Hit</button>
+        <button class="button" id='playerstay'>Stay</button>
     </section>
-      <div class="player">player
-            <div class="playerCard"></div>
-            <div class="playercount"></div>
+
+    <div class="container">
+        <div class="midBtns">
+            <button class='check' id='check'>CHECK</button>
+            <button class='playAgain' id='playAgain'>PLAY AGAIN</button>
+            <button class="card-container" id='shuffle'>SHUFFLE</button>
         </div>
-        <div class="dealer">Dealer
+    </div>
+
+
+    <section class="dealerSection">
+      <div class="dealer" id='dealer'>DEALER</div>
             <div class="dealerCard"></div>
-            <div class="dealercount"></div>
-        </div>
-       
-    <button class="button" id='hit'>Hit</button>
-    <button class="button" id='stay'>Stay</button>
-    
-    <button class='playAgain'>Play Again</button>
-    <button class='check'>Check</button>
-    
-    
-        </div>
+            <button class="button" id='dealerhit'>Hit</button>
+            <button class="button" id='dealerstay'>Stay</button>
+     </section>
+    </div>  
+  
+
+
+        
 </body>
 </html>

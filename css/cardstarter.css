@@ -350,25 +350,97 @@
 
   /* my codes */
   body{
-    background-color: gray;
+    background-color:rgb(7, 7, 7)
    
    
   }
   div {
-    color: white;
+    color: rgb(2, 2, 2);
     font-size: 30px;
     display: flex;
     justify-content: center;
+    margin: auto;
  
   }
   button{
     font-size: 30px;
-    color:white;
-    background-color: black;
-    border: 2px solid red;
+    padding: 10px;
+    border-radius: 10px;
     margin: auto;
-    padding: 5px;
+    position: center;
     cursor: pointer;
+    
   }
-
+  .player, .dealer{
+    font-size: 50px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    text-align: center;
+    border-radius: 10px;
+    padding: 10px;
+    color:rgb(2, 2, 2);
+    
+  }
+  .player {
+    color: white;
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(5, 5, 5);
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+    text-align: center;
+    width:max-content;
+  }
+  .dealer{
+    color: white;
+    background-color: black;
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(5, 5, 5);
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+    text-align: center;
+    width:max-content;
+  }
+.dealercount, .playercount{
   
+  color: black;
+    width:max-content;
+    border-radius: 10px;
+  
+}
+section{
+    margin: auto;
+    width: 50%;
+    border: 3px solid rgb(247, 243, 243);
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+    text-align: center; 
+}
+.playerSection{
+  background-color:lemonchiffon
+  
+}
+.dealerSection{
+  background-color:khaki;
+}
+h1{
+  font-size: 50px;
+  color: rgb(253, 252, 252);
+  position: center;
+  text-align: center;
+  
+}
+.midBtns{
+  background-color: skyblue;
+  margin: auto;
+  width: 100%;
+  border: 3px solid rgb(248, 245, 245);
+  padding: 10px;
+  position: relative;
+  border-radius: 20px;
+  text-align: center;
+}
