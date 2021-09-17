@@ -404,16 +404,10 @@
     text-align: center;
     width:max-content;
   }
-.dealercount, .playercount{
-  
-  color: black;
-    width:max-content;
-    border-radius: 10px;
-  
-}
+
 section{
     margin: auto;
-    width: 50%;
+    width: 40%;
     border: 3px solid rgb(247, 243, 243);
     padding: 10px;
     position: relative;
@@ -421,11 +415,11 @@ section{
     text-align: center; 
 }
 .playerSection{
-  background-color:lemonchiffon
+  background-color:#e2f58e
   
 }
 .dealerSection{
-  background-color:khaki;
+  background-color:#e2f58e
 }
 h1{
   font-size: 50px;
@@ -435,7 +429,7 @@ h1{
   
 }
 .midBtns{
-  background-color: skyblue;
+  background-color: rgb(115, 210, 248);
   margin: auto;
   width: 100%;
   border: 3px solid rgb(248, 245, 245);
@@ -443,4 +437,23 @@ h1{
   position: relative;
   border-radius: 20px;
   text-align: center;
+}
+.score{ 
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  position: relative;
+  border-radius: 20px;
+  text-align: center;
+  width:max-content;
+}
+#roundWinner{
+  background-color: lightcyan;
+  margin: auto;
+    width: 20%;
+    border: 3px solid rgb(247, 243, 243);
+    padding: 10px;
+    position: relative;
+    border-radius: 20px;
+    text-align: center; 
 }

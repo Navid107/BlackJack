@@ -11,12 +11,13 @@
 </head>
 <body>
     <h1>BlackJack</h1> 
+    <div id="roundWinner">Who Wins?</div>
     <div ></div>
     <div class="playField">
     <section class="playerSection">
       <div class="player" id='playery'>PLAYER</div>
-      <div class="credit">0
-      <input type="text" placeholder="bet" id="myInput">
+      <div class="score">Player Score: 
+      <div id='playerScore'>0</div>
     </div>
       <div class="playerCard"></div>
         <button class="button" id='playerhit'>Hit</button>
@@ -34,6 +35,9 @@
 
     <section class="dealerSection">
       <div class="dealer" id='dealer'>DEALER</div>
+            <div class="score">Dealer Score: 
+            <div id="dealerScore">0</div>
+        </div>
             <div class="dealerCard"></div>
             <button class="button" id='dealerhit'>Hit</button>
             <button class="button" id='dealerstay'>Stay</button>
