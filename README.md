@@ -9,6 +9,7 @@ This is a Blackjack game.The objective of the game is to beat the dealer, which 
 # how this app works
 In this game you must follow the red box around the buttons and whatever button is red
 thats the onlly button works at that moment.
+0- Game link https://navid107.github.io/BlackJack/
 
 1- You can shuffle or play. 
 
