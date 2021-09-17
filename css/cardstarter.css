@@ -404,13 +404,7 @@
     text-align: center;
     width:max-content;
   }
-.dealercount, .playercount{
-  
-  color: black;
-    width:max-content;
-    border-radius: 10px;
-  
-}
+
 section{
     margin: auto;
     width: 50%;

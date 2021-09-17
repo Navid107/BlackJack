@@ -40,7 +40,7 @@ function renderDeckInContainer(deck, container) {
     // Let's build the cards as a string of HTML
     let cardsHtml = '';
     deck.forEach(function (card) {
-        cardsHtml += `<div class="card back-blue"></div>`;
+        cardsHtml += `<div class="card ${card.face}"></div>`;
 
 
     });
@@ -75,10 +75,12 @@ renderNewShuffledDeck();
 // variables 
 let playerCards = [];
 let dealerCards = [];
-let playerResult = [];
-let dealerResult = [];
+let playerScore = 0;
+let dealerScore = 0;
 playAgain = false;
 
+
+let showPlayerScores = document.querySelector('#playerScore');
 //Players Container 
 let playerContainer = document.querySelector('.playerCard');
 let dealerContainer = document.querySelector('.dealerCard');
@@ -95,7 +97,7 @@ let btnPlayerHit = document.querySelector('#playerhit');
 let btnPlayerStay = document.querySelector('#playerstay'); 
 let btnDealerHit = document.querySelector('#dealerhit');
 let btnDealerStay = document.querySelector('#dealerstay');
-
+let btnBet = document.querySelector('#bet')
 // gettting random cards
 function randomCards() {
     let random = Math.floor(Math.random() * shuffledDeck.length);
@@ -103,48 +105,81 @@ function randomCards() {
     return shuffledDeck[random];
 }
 //---------------------------- This is the PlayAgain button -------------
-document.querySelector('.playAgain').addEventListener('click', playGame);
 
+//----------------------- Credit funstion --------------//
+// let playerbetEl = document.querySelector('#playerbet');
+ 
+
+// function bet(){
+    
+   
+//     // renderDeckInContainer(playerCards, playerContainer); 
+//     // renderDeckInContainer(dealerCards, dealerContainer);
+//     playerCredit -= playerBet
+//     playerBet = playerbetEl.value;
+//     if(playerBet <= playerCredit){  
+        
+        
+//         btnPlayerHit.style.border = '3px solid red';
+//         console.log("somethings wrong")
+//         console.log(playerBet , playerCredit);
+//         playGame();
+//         // renderDeckInContainer(playerCards, playerContainer); 
+//         // renderDeckInContainer(dealerCards, dealerContainer);
+//     }
+//     else{
+//         console.log("somethings wrong")
+//         console.log(playerBet , playerCredit);
+//     }
+   
+// }
 //---------------------- This is where the game starts-----------------
 function playGame() {
-    // get two random cards and saving them into two variables 
-    playerCards = [randomCards(shuffledDeck), randomCards(shuffledDeck)];
-    dealerCards = [randomCards(shuffledDeck), randomCards(shuffledDeck)];
-    // showning only the player cards
-    renderDeckInContainer(playerCards, playerContainer); 
-    renderDeckInContainer(dealerCards, dealerContainer);
-    
+    playerScore = showPlayerScores.innerHTML;
     dealerSection.style.border = '';
     btnPlayAgain.style.border = '';
-    btnPlayerHit.style.border = '3px solid red';
-    btnPlayerStay.style.border = '3px solid green';
+    dealerCards = [];
+    // console.log(cardPieces.style.display)
+    playerCards = [];
+    dealerContainer.textContent = '';
+    playerContainer.textContent = '';
     btnShuffle.style.border = '3px solid green';
     playerName.style.border ='3px solid red';
+    btnCheck.removeEventListener('click', checkResult);
     if(!btnPlayerHit.addEventListener('click', playerhit)){
         btnPlayerHit.addEventListener('click', playerhit);
-        console.log('added the new eventListener ');
     }
-    return playerCards, dealerCards;
+    // return playerCards, dealerCards;
     
 }
-playGame();
-renderDeckInContainer(playerCards, playerContainer);
-renderDeckInContainer(dealerCards, dealerContainer);
+
+// renderDeckInContainer(playerCards, playerContainer);
+// renderDeckInContainer(dealerCards, dealerContainer);
 //---------------- result and EventListener -----------------
- document.querySelector('.check').addEventListener('click', checkResult);
+ 
 function checkResult() {
    btnCheck.style.border = '';
    btnPlayAgain.style.border = '3px solid red'
    if(getValue(dealerCards) <= '21' &&
    getValue(dealerCards) >= getValue(playerCards)){
-       console.log('dealer wins')
+       dealerScore++;
+       console.log(dealerScore,'dealer wins')
    }
    else if(getValue(dealerCards) < '21' && 
             getValue(playerCards) > '21'){
+                dealerScore++;
+                console.log(dealerScore , 'dealer Credit')
+                
             console.log('dealer wins');
             }
-    else {   console.log('player wins')
+    else { 
+          console.log('player wins')
+             playerScore++;
+            console.log(playerScore , 'player Credit')
+            
    }   
+   document.querySelector('.playAgain').addEventListener('click',playGame);
+   btnDealerStay.removeEventListener('click',dealerstay);
 }
 //------------ calculating the value of the hands --------------
 function getValue(hand) {
@@ -154,43 +189,42 @@ function getValue(hand) {
     });
     return sum;
 }
-//------------- getting function from html and adding eventlistener ----------
-document.querySelector('#playerstay').addEventListener('click', playerstay);
-document.querySelector('#dealerstay').addEventListener('click',dealerstay);
+
+// hit button EventListeners and border when the game starts 
+btnPlayerHit.style.border = '3px solid red'
 document.querySelector('#playerhit').addEventListener('click', playerhit);
-document.querySelector('#dealerhit').addEventListener('click', dealerhit );
 
 //----------------------------When dealer hits stay-------------------
 function dealerstay(){
+
     dealerSection.style.border = '';
     btnDealerStay.style.border = '';
     btnDealerHit.style.border = '';
     check.style.border = '5px solid red';
     renderDeckInContainer(dealerCards, dealerContainer);
+    btnDealerHit.removeEventListener('click', dealerhit);
+    document.querySelector('.check').addEventListener('click', checkResult);
+    btnCheck.addEventListener('check', checkResult);
 }
 // -------------- Dealer turn to play --------------
 function dealerhit() {
+    
     //Checking the value of hands if they are under 21
     if (getValue(dealerCards) < '21') {
-        //if this condition become true game will stop
-        //and dealer will win
         dealerCards.push(randomCards(shuffledDeck));
         console.log('dealer hand', getValue(dealerCards));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = false;
 
-    }  //if the dealer cards value more than 21 dealer will lose
-    else if (getValue(dealerCards) > '21') {
-            renderDeckInContainer(dealerCards, dealerContainer);
-            playAgain = false;
-    }
-    //if the above two condition is false dealer can get more cards 
+        }  
     else {
-        dealerCards.push(randomCards(shuffledDeck));
-        console.log('dealer hand', getValue(dealerCards));
+        // dealerCards.push(randomCards(shuffledDeck));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = true;
     }
+    document.querySelector('#dealerstay').addEventListener('click',dealerstay);
+    btnDealerStay.style.border = '3px solid green'
+    btnPlayerStay.removeEventListener('click', playerstay);
 }
 //--------------------------------------- Shuffle button -------------------------
 document.querySelector('#shuffle').addEventListener('click', shuffleCards)
@@ -216,35 +250,36 @@ function shuffleCards(){
 }
 //-----------------------when Player hits stay -------------------
 function playerstay(){
+    document.querySelector('#dealerhit').addEventListener('click', dealerhit );
     btnPlayerHit.removeEventListener('click', playerhit);
+
     dealerSection.style.border = '5px solid red';
     playerSection.style.border = '';
     btnPlayerHit.style.border = '';
     btnPlayerStay.style.border = '';
     btnDealerHit.style.border = '3px solid red';
-    btnDealerStay.style.border = '3px solid green'
+    playerName.style.border = '';
+    
 }
 
 // ---------------------- play turn to play-------------------------
 function playerhit() {
-    playerSection.style.border = '5px solid red';
+    playerSection.style.border = '3px solid red'
+    playerName.style.border = '3px solid green'
+    btnPlayerStay.style.border = '3px solid green';
     //if players card value is above 21 player will lose 
     if (getValue(playerCards) < '21') {
         playerCards.push(randomCards(shuffledDeck));
-        console.log('player hand ', getValue(playerCards));
         renderDeckInContainer(playerCards, playerContainer);
         playAgain = false;
     }
-    else if (getValue(playerCards) === '21') {
-        console.log('player won ', getValue(playerCards));
-        renderDeckInContainer(playerCards, playerContainer);
-    }
-    // if the player cards value is under 21, can get more cards
     else {
         renderDeckInContainer(playerCards, playerContainer);
-        console.log('player hand ', getValue(playerCards), 'player lost');
         playAgain = true;
     }
+    document.querySelector('#playerstay').addEventListener('click', playerstay);
+    btnDealerHit.removeEventListener('click', dealerhit);
+    btnPlayAgain.removeEventListener('click', playGame)
 }
 
 
