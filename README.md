@@ -25,8 +25,7 @@ Game link https://navid107.github.io/BlackJack/
 
 6- The process repeats again. 
 
-# The instructions below describes the various methods which can be used
-# to execute the game:
+# The instructions below describes the various methods which can be used to execute the game:
 
 # creating the Cards and Deck 
 line 2-3, adding faces and ranks in two arrays.
