@@ -1,4 +1,4 @@
-# BlackJack Based on JS, HTML, CSS
+# BlackJack 
 
 This is a Blackjack game.The objective of the game is to beat the dealer, which can be done in in this oerder.
 <Get 21 point with first two cards and its BLACKJACK automatic win>.
@@ -71,4 +71,6 @@ line 222-232 playerStay function sets the design and next move.
 # Player Hit
 line 235-253 playerHit function can generate new cards if the hands is under 21
 sets the desing.
+
+#Based on JS, HTML, CSS
 
