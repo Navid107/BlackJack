@@ -10,9 +10,6 @@ let shuffledDeck;
 /*----- cached element references -----*/
 const shuffledContainer = document.getElementById('shuffled-deck-container');
 
-/*----- event listeners -----*/
-
-
 /*----- functions -----*/
 function getNewShuffledDeck() {
     // Create a copy of the masterDeck (leave masterDeck untouched!)
@@ -75,8 +72,7 @@ playAgain = false;
 
 //round Winner inner 
 let roundWinner = document.querySelector('#roundWinner');
-
-//scores
+//output scores
 let showDealerScore = document.querySelector('#dealerScore');
 let showPlayerScores = document.querySelector('#playerScore');
 //Players Container 
