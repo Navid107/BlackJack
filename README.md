@@ -10,7 +10,7 @@ This is a Blackjack game.The objective of the game is to beat the dealer, which 
 In this game you must follow the red box around the buttons and whatever button is red
 thats the onlly button works at that moment.
 Game link https://navid107.github.io/BlackJack/
-#Based on JS, https://camo.githubusercontent.com/6afc284402a44ad2a85f928cf79bad9fe6a452f16f597783aabff8a46d98b554/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f2d48544d4c352d3333333f7374796c653d666c6174266c6f676f3d68746d6c35, CSS
+#Based on JS, HTML, CSS
 
 <img width="1435" alt="Screen Shot 2021-09-17 at 1 08 36 AM" src="https://user-images.githubusercontent.com/90425833/133823083-c40a801e-0ad2-422e-84cc-f1da754ed7fa.png">
 
