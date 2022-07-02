@@ -176,6 +176,7 @@ function dealerstay() {
 
 // -------------- Dealer turn to play --------------
 function dealerhit() {
+    
     //Checking the value of hands if they are under 21
     if (getValue(dealerCards) < '21') {
         dealerCards.push(randomCards(shuffledDeck));
