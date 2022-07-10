@@ -10,6 +10,9 @@ let shuffledDeck;
 /*----- cached element references -----*/
 const shuffledContainer = document.getElementById('shuffled-deck-container');
 
+/*----- event listeners -----*/
+
+
 /*----- functions -----*/
 function getNewShuffledDeck() {
     // Create a copy of the masterDeck (leave masterDeck untouched!)
@@ -72,7 +75,8 @@ playAgain = false;
 
 //round Winner inner 
 let roundWinner = document.querySelector('#roundWinner');
-//output scores
+
+//scores
 let showDealerScore = document.querySelector('#dealerScore');
 let showPlayerScores = document.querySelector('#playerScore');
 //Players Container 
@@ -176,7 +180,6 @@ function dealerstay() {
 
 // -------------- Dealer turn to play --------------
 function dealerhit() {
-    
     //Checking the value of hands if they are under 21
     if (getValue(dealerCards) < '21') {
         dealerCards.push(randomCards(shuffledDeck));
