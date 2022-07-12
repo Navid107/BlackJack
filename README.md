@@ -1,4 +1,4 @@
-# BlackJack 
+# BlackJack 21
 
 This is a Blackjack game.The objective of the game is to beat the dealer, which can be done in in this oerder.
 <Get 21 point with first two cards and its BLACKJACK automatic win>.
