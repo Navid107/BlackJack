@@ -36,10 +36,6 @@ function renderDeckInContainer(deck, container) {
     let cardsHtml = '';
     deck.forEach(function (card) {
         cardsHtml += `<div class="card ${card.face}"></div>`;
-
-
-
-
     });
 
     // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
@@ -74,14 +70,10 @@ let playerScore = 0;
 let dealerScore = 0;
 playAgain = false;
 
-
-
-
 //round Winner inner 
 let roundWinner = document.querySelector('#roundWinner');
 //output scores
 let showDealerScore = document.querySelector('#dealerScore');
-
 let showPlayerScores = document.querySelector('#playerScore');
 //Players Container 
 let playerContainer = document.querySelector('.playerCard');
@@ -100,11 +92,9 @@ let btnPlayerStay = document.querySelector('#playerstay');
 let btnDealerHit = document.querySelector('#dealerhit');
 let btnDealerStay = document.querySelector('#dealerstay');
 let btnBet = document.querySelector('#bet')
-
 document.querySelector('button').addEventListener('click', renderNewShuffledDeck);
 btnPlayerHit.style.border = '3px solid red'
 document.querySelector('#playerhit').addEventListener('click', playerhit);
-
 
 // gettting random cards
 function randomCards() {
@@ -112,44 +102,6 @@ function randomCards() {
     //console.log(shuffledDeck[random])
     return shuffledDeck[random];
 }
-
-//---------------------------- This is the PlayAgain button -------------
-
-//----------------------- Credit funstion --------------//
-// let playerbetEl = document.querySelector('#playerbet');
- 
-
-// function bet(){
-    
-   
-//     // renderDeckInContainer(playerCards, playerContainer); 
-//     // renderDeckInContainer(dealerCards, dealerContainer);
-//     playerCredit -= playerBet
-//     playerBet = playerbetEl.value;
-//     if(playerBet <= playerCredit){  
-        
-        
-//         btnPlayerHit.style.border = '3px solid red';
-//         console.log("somethings wrong")
-//         console.log(playerBet , playerCredit);
-//         playGame();
-//         // renderDeckInContainer(playerCards, playerContainer); 
-//         // renderDeckInContainer(dealerCards, dealerContainer);
-//     }
-//     else{
-//         console.log("somethings wrong")
-//         console.log(playerBet , playerCredit);
-//     }
-   
-// }
-//---------------------- This is where the game starts-----------------
-function playGame() {
-    playerScore = showPlayerScores.innerHTML;
-    dealerSection.style.border = '';
-    btnPlayAgain.style.border = '';
-    dealerCards = [];
-    // console.log(cardPieces.style.display)
-
 //---------------------- This is where the game starts-----------------
 function playGame() {
     roundWinner.innerHTML = 'Who Wins?'
@@ -157,49 +109,10 @@ function playGame() {
     dealerSection.style.border = '';
     btnPlayAgain.style.border = '';
     dealerCards = [];
-
     playerCards = [];
     dealerContainer.textContent = '';
     playerContainer.textContent = '';
     btnShuffle.style.border = '3px solid green';
-
-    playerName.style.border ='3px solid red';
-    btnCheck.removeEventListener('click', checkResult);
-    if(!btnPlayerHit.addEventListener('click', playerhit)){
-        btnPlayerHit.addEventListener('click', playerhit);
-    }
-    // return playerCards, dealerCards;
-    
-}
-
-// renderDeckInContainer(playerCards, playerContainer);
-// renderDeckInContainer(dealerCards, dealerContainer);
-//---------------- result and EventListener -----------------
- 
-function checkResult() {
-   btnCheck.style.border = '';
-   btnPlayAgain.style.border = '3px solid red'
-   if(getValue(dealerCards) <= '21' &&
-   getValue(dealerCards) >= getValue(playerCards)){
-       dealerScore++;
-       console.log(dealerScore,'dealer wins')
-   }
-   else if(getValue(dealerCards) < '21' && 
-            getValue(playerCards) > '21'){
-                dealerScore++;
-                console.log(dealerScore , 'dealer Credit')
-                
-            console.log('dealer wins');
-            }
-    else { 
-          console.log('player wins')
-             playerScore++;
-            console.log(playerScore , 'player Credit')
-            
-   }   
-   document.querySelector('.playAgain').addEventListener('click',playGame);
-   btnDealerStay.removeEventListener('click',dealerstay);
-
     playerName.style.border = '3px solid red';
     btnCheck.removeEventListener('click', checkResult);
     if (!btnPlayerHit.addEventListener('click', playerhit)) {
@@ -238,7 +151,6 @@ function checkResult() {
     document.querySelector('.playAgain').addEventListener('click', playGame);
     btnDealerStay.removeEventListener('click', dealerstay);
     btnShuffle.addEventListener('click', shuffleCards);
-
 }
 
 //------------ calculating the value of the hands --------------
@@ -250,19 +162,8 @@ function getValue(hand) {
     return sum;
 }
 
-
-// hit button EventListeners and border when the game starts 
-btnPlayerHit.style.border = '3px solid red'
-document.querySelector('#playerhit').addEventListener('click', playerhit);
-
-//----------------------------When dealer hits stay-------------------
-function dealerstay(){
-
-
-
 //----------------------------dealer stay -------------------
 function dealerstay() {
-
     dealerSection.style.border = '';
     btnDealerStay.style.border = '';
     btnDealerHit.style.border = '';
@@ -282,22 +183,13 @@ function dealerhit() {
         console.log('dealer hand', getValue(dealerCards));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = false;
-
-
-        }  
-
     }
-
     else {
         // dealerCards.push(randomCards(shuffledDeck));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = true;
     }
-
-    document.querySelector('#dealerstay').addEventListener('click',dealerstay);
-
     document.querySelector('#dealerstay').addEventListener('click', dealerstay);
-
     btnDealerStay.style.border = '3px solid green'
     btnPlayerStay.removeEventListener('click', playerstay);
 }
@@ -324,27 +216,16 @@ function shuffleCards() {
 }
 
 //-----------------------when Player hits stay -------------------
-
-function playerstay(){
-    document.querySelector('#dealerhit').addEventListener('click', dealerhit );
-    btnPlayerHit.removeEventListener('click', playerhit);
-
-    dealerSection.style.border = '5px solid red';
-
 function playerstay() {
     document.querySelector('#dealerhit').addEventListener('click', dealerhit);
     btnPlayerHit.removeEventListener('click', playerhit);
     dealerName.style.border = '3px solid red'
     dealerSection.style.border = '3px solid red';
-
     playerSection.style.border = '';
     btnPlayerHit.style.border = '';
     btnPlayerStay.style.border = '';
     btnDealerHit.style.border = '3px solid red';
     playerName.style.border = '';
-
-    
-
 }
 
 // ---------------------- play turn to play-------------------------
@@ -365,10 +246,14 @@ function playerhit() {
     document.querySelector('#playerstay').addEventListener('click', playerstay);
     btnDealerHit.removeEventListener('click', dealerhit);
     btnPlayAgain.removeEventListener('click', playGame)
-
     btnShuffle.removeEventListener('click', shuffleCards);
-
 }
+
+
+
+
+
+
 
 
 
