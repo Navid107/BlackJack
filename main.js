@@ -36,11 +36,10 @@ function renderDeckInContainer(deck, container) {
     let cardsHtml = '';
     deck.forEach(function (card) {
         cardsHtml += `<div class="card ${card.face}"></div>`;
-<<<<<<< HEAD
 
 
-=======
->>>>>>> main
+
+
     });
 
     // Or, use reduce to 'reduce' the array into a single thing - in this case a string of HTML markup 
@@ -75,14 +74,14 @@ let playerScore = 0;
 let dealerScore = 0;
 playAgain = false;
 
-<<<<<<< HEAD
 
-=======
+
+
 //round Winner inner 
 let roundWinner = document.querySelector('#roundWinner');
 //output scores
 let showDealerScore = document.querySelector('#dealerScore');
->>>>>>> main
+
 let showPlayerScores = document.querySelector('#playerScore');
 //Players Container 
 let playerContainer = document.querySelector('.playerCard');
@@ -101,20 +100,19 @@ let btnPlayerStay = document.querySelector('#playerstay');
 let btnDealerHit = document.querySelector('#dealerhit');
 let btnDealerStay = document.querySelector('#dealerstay');
 let btnBet = document.querySelector('#bet')
-<<<<<<< HEAD
-=======
+
 document.querySelector('button').addEventListener('click', renderNewShuffledDeck);
 btnPlayerHit.style.border = '3px solid red'
 document.querySelector('#playerhit').addEventListener('click', playerhit);
 
->>>>>>> main
+
 // gettting random cards
 function randomCards() {
     let random = Math.floor(Math.random() * shuffledDeck.length);
     //console.log(shuffledDeck[random])
     return shuffledDeck[random];
 }
-<<<<<<< HEAD
+
 //---------------------------- This is the PlayAgain button -------------
 
 //----------------------- Credit funstion --------------//
@@ -151,7 +149,7 @@ function playGame() {
     btnPlayAgain.style.border = '';
     dealerCards = [];
     // console.log(cardPieces.style.display)
-=======
+
 //---------------------- This is where the game starts-----------------
 function playGame() {
     roundWinner.innerHTML = 'Who Wins?'
@@ -159,12 +157,12 @@ function playGame() {
     dealerSection.style.border = '';
     btnPlayAgain.style.border = '';
     dealerCards = [];
->>>>>>> main
+
     playerCards = [];
     dealerContainer.textContent = '';
     playerContainer.textContent = '';
     btnShuffle.style.border = '3px solid green';
-<<<<<<< HEAD
+
     playerName.style.border ='3px solid red';
     btnCheck.removeEventListener('click', checkResult);
     if(!btnPlayerHit.addEventListener('click', playerhit)){
@@ -201,7 +199,7 @@ function checkResult() {
    }   
    document.querySelector('.playAgain').addEventListener('click',playGame);
    btnDealerStay.removeEventListener('click',dealerstay);
-=======
+
     playerName.style.border = '3px solid red';
     btnCheck.removeEventListener('click', checkResult);
     if (!btnPlayerHit.addEventListener('click', playerhit)) {
@@ -240,7 +238,7 @@ function checkResult() {
     document.querySelector('.playAgain').addEventListener('click', playGame);
     btnDealerStay.removeEventListener('click', dealerstay);
     btnShuffle.addEventListener('click', shuffleCards);
->>>>>>> main
+
 }
 
 //------------ calculating the value of the hands --------------
@@ -251,7 +249,7 @@ function getValue(hand) {
     });
     return sum;
 }
-<<<<<<< HEAD
+
 
 // hit button EventListeners and border when the game starts 
 btnPlayerHit.style.border = '3px solid red'
@@ -260,11 +258,11 @@ document.querySelector('#playerhit').addEventListener('click', playerhit);
 //----------------------------When dealer hits stay-------------------
 function dealerstay(){
 
-=======
+
 
 //----------------------------dealer stay -------------------
 function dealerstay() {
->>>>>>> main
+
     dealerSection.style.border = '';
     btnDealerStay.style.border = '';
     btnDealerHit.style.border = '';
@@ -284,22 +282,22 @@ function dealerhit() {
         console.log('dealer hand', getValue(dealerCards));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = false;
-<<<<<<< HEAD
+
 
         }  
-=======
+
     }
->>>>>>> main
+
     else {
         // dealerCards.push(randomCards(shuffledDeck));
         renderDeckInContainer(dealerCards, dealerContainer);
         playAgain = true;
     }
-<<<<<<< HEAD
+
     document.querySelector('#dealerstay').addEventListener('click',dealerstay);
-=======
+
     document.querySelector('#dealerstay').addEventListener('click', dealerstay);
->>>>>>> main
+
     btnDealerStay.style.border = '3px solid green'
     btnPlayerStay.removeEventListener('click', playerstay);
 }
@@ -326,28 +324,27 @@ function shuffleCards() {
 }
 
 //-----------------------when Player hits stay -------------------
-<<<<<<< HEAD
+
 function playerstay(){
     document.querySelector('#dealerhit').addEventListener('click', dealerhit );
     btnPlayerHit.removeEventListener('click', playerhit);
 
     dealerSection.style.border = '5px solid red';
-=======
+
 function playerstay() {
     document.querySelector('#dealerhit').addEventListener('click', dealerhit);
     btnPlayerHit.removeEventListener('click', playerhit);
     dealerName.style.border = '3px solid red'
     dealerSection.style.border = '3px solid red';
->>>>>>> main
+
     playerSection.style.border = '';
     btnPlayerHit.style.border = '';
     btnPlayerStay.style.border = '';
     btnDealerHit.style.border = '3px solid red';
     playerName.style.border = '';
-<<<<<<< HEAD
+
     
-=======
->>>>>>> main
+
 }
 
 // ---------------------- play turn to play-------------------------
@@ -368,10 +365,9 @@ function playerhit() {
     document.querySelector('#playerstay').addEventListener('click', playerstay);
     btnDealerHit.removeEventListener('click', dealerhit);
     btnPlayAgain.removeEventListener('click', playGame)
-<<<<<<< HEAD
-=======
+
     btnShuffle.removeEventListener('click', shuffleCards);
->>>>>>> main
+
 }
 
 
